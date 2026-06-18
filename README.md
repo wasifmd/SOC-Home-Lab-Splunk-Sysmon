@@ -61,6 +61,9 @@ splunk add forward-server 127.0.0.1:9997
 
 ### Step 5: Configure inputs.conf
 
+1. Open Notepad as Administrator.
+2. Configure like below:
+
 ```ini
 [WinEventLog://Security]
 disabled = 0
@@ -77,6 +80,32 @@ disabled = 0
 index = wineventlog
 sourcetype = WinEventLog:Application
 ```
+
+3. Save the file as `inputs.conf` in:
+
+```text
+C:\Program Files\SplunkUniversalForwarder\etc\system\local\
+```
+
+4. Select **Save as type: All Files (*.*)** and save.
+
+### Step 6: Create a New Index
+
+Before receiving Windows Event Logs, create a dedicated index in Splunk.
+
+Navigate to:
+
+Splunk → Settings → Indexes → New Index
+
+Index Name:
+
+```text
+wineventlog (Same name as in the inputs.conf file)
+```
+
+Save the configuration.
+
+This index is used to store Windows Event Logs forwarded from the Universal Forwarder.
 
 ### Step 7: Restart Forwarder
 
