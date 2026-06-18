@@ -17,18 +17,7 @@ The goal was to collect Windows Event Logs and send them to Splunk for monitorin
 
 ## Architecture
 
-Windows Endpoint
-|
-v
-Splunk Universal Forwarder
-|
-Port 9997
-|
-v
-Splunk Enterprise
-|
-v
-Search and Monitoring
+Windows Endpoint ---> Splunk Universal Forwarder ---> Port 9997 ---> Splunk Enterprise ---> Search and Monitoring
 
 ---
 
