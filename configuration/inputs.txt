@@ -1,0 +1,70 @@
+########################################
+## SYSTEM & WINDOWS EVENT LOGS
+########################################
+
+[WinEventLog://Security]
+disabled = 0
+index = wineventlog
+sourcetype = WinEventLog:Security
+
+[WinEventLog://System]
+disabled = 0
+index = wineventlog
+sourcetype = WinEventLog:System
+
+[WinEventLog://Application]
+disabled = 0
+index = wineventlog
+sourcetype = WinEventLog:Application
+
+########################################
+## SYSMON OPERATIONAL LOGS
+########################################
+
+[WinEventLog://Microsoft-Windows-Sysmon/Operational]
+disabled = 0
+index = sysmon
+sourcetype = WinEventLog:Microsoft-Windows-Sysmon/Operational
+
+########################################
+## POWERSHELL LOGGING
+########################################
+
+[WinEventLog://Windows PowerShell]
+disabled = 0
+index = wineventlog
+sourcetype = WinEventLog:Windows PowerShell
+
+########################################
+## RDP & LOGON/LOGOFF EVENTS
+########################################
+
+[WinEventLog://Microsoft-Windows-TerminalServices-LocalSessionManager/Operational]
+disabled = 0
+index = wineventlog
+sourcetype = WinEventLog:TerminalServices-LocalSessionManager
+
+[WinEventLog://Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational]
+disabled = 0
+index = wineventlog
+sourcetype = WinEventLog:TerminalServices-RemoteConnectionManager
+
+########################################
+## OPTIONAL – IF YOU WANT CLI SCRIPTS
+########################################
+
+[WinEventLog://Windows PowerShell/Analytic]
+disabled = 1
+
+[WinEventLog://Windows PowerShell/Debug]
+disabled = 1
+
+########################################
+## LOCAL FILES (if needed)
+########################################
+
+# Example: forward local audit logs
+# monitor://C:\AuditLogs\*.log
+# disabled = 0
+# index = audit
+# sourcetype = custom:auditlog
