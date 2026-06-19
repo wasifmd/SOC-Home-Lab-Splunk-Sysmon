@@ -128,10 +128,156 @@ Expected Events:
 - Event ID 4688
 - Event ID 4720
 
-## Skills Learned
+---
 
-- SIEM Fundamentals
-- Log Collection
-- Windows Event Monitoring
-- Splunk Administration
-- Universal Forwarder Configuration
+## Screenshots
+
+### Splunk Home
+![Splunk Home](screenshots/01-splunk-home.png)
+
+### Inputs Configuration
+![Inputs Configuration](screenshots/02-inputs-conf.png)
+
+### Outputs Configuration
+![Outputs Configuration](screenshots/03-outputs-conf.png)
+
+### Windows Security Logs
+![Windows Security Logs](screenshots/04-security-logs.png)
+
+### Failed Login Detection
+![Failed Login Detection](screenshots/05-failed-logins-detection.png)
+
+### Successful Login Detection
+![Successful Login Detection](screenshots/06-successful-logins-detection.png)
+
+### New Process Created
+![New Process Created](screenshots/07-new-process-created.png)
+
+### User Account Created
+![User Account Created](screenshots/08-user-created.png)
+
+### User Account Deleted
+![User Account Deleted](screenshots/09-user-deleted.png)
+
+### SOC Dashboard
+![SOC Dashboard](screenshots/10-dashboard.png)
+
+### Alert Configuration
+![Alert Configuration](screenshots/11-alert-created.png)
+
+### Triggered Alert
+![Triggered Alert](screenshots/12-alert-triggered.png)
+
+### SPL Queries
+![SPL Queries](screenshots/13-spl-queries.png)
+
+---
+
+## Detection Use Cases
+
+### Failed Login Detection
+
+SPL Query:
+
+```spl
+index=wineventlog EventCode=4625
+```
+
+Purpose:
+
+Detect failed Windows login attempts that may indicate brute-force activity or unauthorized access attempts.
+
+### Successful Login Detection
+
+SPL Query:
+
+```spl
+index=wineventlog EventCode=4624
+```
+
+Purpose:
+
+Monitor successful user authentication activity and verify legitimate access.
+
+### Process Creation Monitoring
+
+SPL Query:
+
+```spl
+index=wineventlog EventCode=4688
+```
+
+Purpose:
+
+Monitor newly created processes and identify potentially suspicious execution activity.
+
+### User Account Creation Detection
+
+SPL Query:
+
+```spl
+index=wineventlog EventCode=4720
+```
+
+Purpose:
+
+Detect the creation of new local user accounts.
+
+### User Account Deletion Detection
+
+SPL Query:
+
+```spl
+index=wineventlog EventCode=4726
+```
+
+Purpose:
+
+Detect the deletion of local user accounts.
+
+---
+
+## Dashboard and Alerting
+
+A custom SOC monitoring dashboard was created in Splunk to provide centralized visibility into Windows security events and endpoint activity.
+
+Dashboard panels include:
+
+- Failed Login Attempts
+- Successful Login Activity
+- Windows Security Events
+- Event Volume Monitoring
+- User Account Activity
+
+Alerts were configured to notify on:
+
+- Multiple Failed Login Attempts
+- Suspicious User Activity
+- Security Event Monitoring
+
+---
+
+## Skills Demonstrated
+
+- Security Information and Event Management (SIEM)
+- Splunk Enterprise Administration
+- Splunk Universal Forwarder Configuration
+- Windows Event Log Collection
+- Log Analysis and Investigation
+- Security Monitoring
+- Dashboard Creation
+- Alert Configuration
+- SPL (Search Processing Language)
+- Threat Detection Fundamentals
+- Incident Detection and Analysis
+- Windows Security Event Monitoring
+
+---
+
+## Conclusion
+
+This project demonstrates the successful implementation of a Security Operations Center (SOC) home lab using Splunk Enterprise and Splunk Universal Forwarder.
+
+The environment collects Windows Event Logs, forwards them to Splunk, and enables centralized monitoring, event analysis, dashboard creation, and alerting capabilities.
+
+Through this project, practical experience was gained in SIEM deployment, log management, security monitoring, detection engineering, and incident investigation workflows commonly used by SOC Analysts and Security Operations teams.
