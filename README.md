@@ -34,7 +34,7 @@ The following configuration files were used to enable Windows Event Log collecti
 Location:
 
 ```text
-configuration/inputs.txt
+configuration/inputs.conf
 ```
 
 Purpose:
