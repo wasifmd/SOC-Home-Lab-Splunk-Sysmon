@@ -19,6 +19,44 @@ The goal was to collect Windows Event Logs and send them to Splunk for monitorin
 
 Windows Endpoint ---> Splunk Universal Forwarder ---> Port 9997 ---> Splunk Enterprise ---> Search and Monitoring
 
+### Architecture Diagram
+
+![Architecture Diagram](architecture/Architecture-diagram.PNG)
+
+---
+
+## Configuration
+
+The following configuration files were used to enable Windows Event Log collection and forwarding to Splunk Enterprise.
+
+### inputs.conf
+
+Location:
+
+```text
+configuration/inputs.txt
+```
+
+Purpose:
+
+- Collect Windows Security Logs
+- Collect Windows System Logs
+- Collect Windows Application Logs
+- Forward collected events to Splunk Enterprise
+
+### outputs.conf
+
+Purpose:
+
+- Configure the Universal Forwarder to send logs to the Splunk receiving port (9997)
+- Establish communication between the endpoint and Splunk Enterprise
+
+### Configuration Screenshot
+
+![Inputs Configuration](screenshots/02-inputs-conf.png)
+
+![Outputs Configuration](screenshots/03-outputs-conf.png)
+
 ---
 
 ## Installation Steps
@@ -134,12 +172,6 @@ Expected Events:
 
 ### Splunk Home
 ![Splunk Home](screenshots/01-splunk-home.png)
-
-### Inputs Configuration
-![Inputs Configuration](screenshots/02-inputs-conf.png)
-
-### Outputs Configuration
-![Outputs Configuration](screenshots/03-outputs-conf.png)
 
 ### Windows Security Logs
 ![Windows Security Logs](screenshots/04-security-logs.png)
