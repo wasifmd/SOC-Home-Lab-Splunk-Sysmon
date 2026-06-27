@@ -23,7 +23,7 @@ Windows Endpoint ---> Windows Event Logs + Sysmon ---> Splunk Universal Forwarde
 
 ### Architecture Diagram
 
-![Architecture Diagram](architecture/Architecture-diagram.PNG)
+![Architecture Diagram](architecture/Architecture-diagram.png)
 
 ---
 
