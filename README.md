@@ -10,8 +10,10 @@ The goal was to collect Windows Event Logs and send them to Splunk for monitorin
 
 - Splunk Enterprise
 - Splunk Universal Forwarder
+- Microsoft Sysmon
 - Windows Event Logs
 - Windows 11
+- SPL (Search Processing Language)
 
 ---
 
@@ -168,6 +170,59 @@ Expected Events:
 
 ---
 
+## Sysmon Integration
+
+To enhance endpoint visibility and improve threat detection capabilities, Microsoft Sysmon was deployed and integrated with Splunk.
+
+### Sysmon Installation
+
+1. Downloaded Sysmon and the Sysmon configuration file.
+2. Extracted both files into:
+
+```text
+C:\Sysmon
+```
+
+3. Installed Sysmon using the configuration file:
+
+```cmd
+sysmon64.exe -accepteula -i sysmonconfig-export.xml
+```
+
+### Splunk Forwarder Configuration
+
+To ensure Windows and Sysmon event logs were collected successfully, the Splunk Universal Forwarder service was configured to run using the **Local System Account**.
+
+### Splunk Index Configuration
+
+A dedicated index was created for Sysmon events.
+
+Index Name:
+
+```text
+sysmon
+```
+
+### Verify Sysmon Events
+
+Run the following SPL query:
+
+```spl
+index=sysmon
+```
+
+Expected Results:
+
+- Process Creation Events
+- Network Connection Events
+- File Creation Events
+- Registry Modification Events
+- Image Load Events
+
+The successful ingestion of Sysmon logs provides enhanced endpoint telemetry for security monitoring and threat hunting.
+
+---
+
 ## Screenshots
 
 ### Splunk Home
@@ -293,23 +348,32 @@ Alerts were configured to notify on:
 
 - Security Information and Event Management (SIEM)
 - Splunk Enterprise Administration
-- Splunk Universal Forwarder Configuration
-- Windows Event Log Collection
+- Splunk Universal Forwarder Deployment and Configuration
+- Microsoft Sysmon Deployment and Integration
+- Windows Event Log Collection and Analysis
+- Endpoint Telemetry Collection
 - Log Analysis and Investigation
+- Security Event Correlation
 - Security Monitoring
-- Dashboard Creation
-- Alert Configuration
-- SPL (Search Processing Language)
-- Threat Detection Fundamentals
+- Threat Detection and Hunting
 - Incident Detection and Analysis
+- Dashboard Design and Visualization
+- Security Alert Configuration
+- SPL (Search Processing Language)
 - Windows Security Event Monitoring
+- Windows Process Creation Monitoring
+- User Account Activity Monitoring
+- Detection Engineering Fundamentals
+- Blue Team Operations
+- SOC Monitoring Workflows
+- Endpoint Security Monitoring
 
 ---
 
 ## Conclusion
 
-This project demonstrates the successful implementation of a Security Operations Center (SOC) home lab using Splunk Enterprise and Splunk Universal Forwarder.
+This project demonstrates the successful implementation of a Security Operations Center (SOC) home lab using Splunk Enterprise, Splunk Universal Forwarder, and Microsoft Sysmon.
 
-The environment collects Windows Event Logs, forwards them to Splunk, and enables centralized monitoring, event analysis, dashboard creation, and alerting capabilities.
+The environment collects Windows Event Logs and Sysmon telemetry, forwards them to Splunk, and provides centralized log management, security monitoring, dashboard visualization, alerting, and threat detection capabilities.
 
-Through this project, practical experience was gained in SIEM deployment, log management, security monitoring, detection engineering, and incident investigation workflows commonly used by SOC Analysts and Security Operations teams.
+By completing this project, practical experience was gained in SIEM deployment, endpoint monitoring, Windows logging, Sysmon integration, log analysis, dashboard creation, alert configuration, detection engineering, and incident investigation workflows commonly performed by SOC Analysts and Blue Team security professionals.
