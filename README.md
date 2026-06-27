@@ -241,7 +241,7 @@ SPL Query:
 index=sysmon
 ```
 
-
+![Sysmon Events](screenshots/14-sysmon-events.png)
 
 ### Failed Login Detection
 ![Failed Login Detection](screenshots/05-failed-logins-detection.png)
